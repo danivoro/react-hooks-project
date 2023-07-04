@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react'
 
 function App() {
+  const [count, setCount] = useState(4)
+
+  function decrementCount(){
+    setCount(prevCount => prevCount - 1)
+  }
+
+  function incrementCount(){
+    setCount(prevCount => prevCount + 1)
+  }
+
+  function multiplyByTwo(){
+    setCount(prevCount => prevCount * 2)
+  }
+
+  function divideByTwo(){
+    setCount(prevCount => prevCount / 2)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <button onClick={multiplyByTwo}>x2</button>
+    <button onClick={decrementCount}>-</button>
+    <span>{count}</span>
+    <button onClick={incrementCount}>+</button>
+    <button onClick={divideByTwo}>/2</button>
+    </>
   );
 }
 
